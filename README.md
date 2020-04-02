@@ -18,3 +18,8 @@
 
 #### 7 wildcard
 1. Route 裡用閉包直接取得 wildcard 當作 key， 取出對應的 data 傳到前端
+
+#### 9 DB
+1. mysql
+    * `create table posts(id INT(6) PRIMARY KEY, slug varchar(255), body text);`
+    * `Insert into posts(slug,body) values ('my-first-post','Hello, this is my first post.');`
