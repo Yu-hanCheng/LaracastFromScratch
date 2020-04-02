@@ -20,3 +20,6 @@ Route::get('test', function () {
     return view('test', ['name' => request('name')]);
 });
 Route::get('posts/{post}','PostController@show'); 
+Route::get('contact', function(){
+    return view('contact');
+});
