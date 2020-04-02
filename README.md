@@ -23,3 +23,6 @@
 1. mysql
     * `create table posts(id INT(6) PRIMARY KEY, slug varchar(255), body text);`
     * `Insert into posts(slug,body) values ('my-first-post','Hello, this is my first post.');`
+
+#### 10 Eloquent
+1. replace if(! $post) with 'firstorFail()'
