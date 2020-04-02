@@ -26,3 +26,7 @@
 
 #### 10 Eloquent
 1. replace if(! $post) with 'firstorFail()'
+
+#### 12 Bussiness logic
+1. 注意！設定時間欄位要用 timestamp()!timestamps() not accepts any argument and creates two colums : created_at and updated_at。
+2. `php artisan tinker`
