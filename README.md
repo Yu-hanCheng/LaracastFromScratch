@@ -43,3 +43,6 @@
 
 #### 21 Controller
 * `php artisan make:controller PostController -r -m post` 會自動生成 7 個 function 且 include Model 
+
+#### 23 Form
+* @csrf 等於 `<input type="hidden" name="_token" value="G7aB0Vg6zZP8z26Xb7pj3Vz6Cu4qP5VXATQe61Xf">`

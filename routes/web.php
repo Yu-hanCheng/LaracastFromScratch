@@ -28,3 +28,5 @@ Route::get('about', function () {
 });
 Route::get('article/{article}', 'ArticleController@show');
 Route::get('articles', 'ArticleController@index');
+Route::get('articles/create', 'ArticleController@create');
+Route::post('articles', 'ArticleController@store');
