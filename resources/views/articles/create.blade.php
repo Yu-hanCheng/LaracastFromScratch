@@ -11,19 +11,26 @@
            <div class="field">
                <label for="title">Title</label>
                <div class="control">
-                   <input type="text" name="title" id="title"/>
+                   <input class="input {{ $errors->has('title') ? 'is-danger' : '' }}" type="text" name="title" id="title"/>
+                  
                </div>
            </div> 
             <div class="field">
                <label for="excerpt">Excerpt</label>
                <div class="control">
-                   <textarea type="text" name="excerpt" id="excerpt"></textarea>
+                   <textarea class="textarea" type="text" name="excerpt" id="excerpt"></textarea>
+                   @error('excerpt')
+                    <p class="help is-danger">{{ $errors->first('excerpt')}}</p> 
+                    @enderror
                </div>
            </div>
             <div class="field">
                <label for="body">Body</label>
                <div class="control">
-                   <textarea type="text" name="body" id="body"></textarea>
+                   <textarea class="textarea" type="text" name="body" id="body"></textarea>
+                   @if ($errors->has('body'))
+                    <p class="help is-danger">{{ $errors->first('body')}}</p> 
+                    @endif
                </div>
            </div>
             <div class="field is-grouped">
