@@ -46,3 +46,6 @@
 
 #### 23 Form
 * @csrf 等於 `<input type="hidden" name="_token" value="G7aB0Vg6zZP8z26Xb7pj3Vz6Cu4qP5VXATQe61Xf">`
+
+#### 24 Edit Form
+* @method('PUT') 等於 `<input type="hidden" name="_method" value="put">`
