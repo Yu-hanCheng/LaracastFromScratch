@@ -11,4 +11,9 @@ class ArticleController extends Controller
     {
         return view('articles.show',['article' => Article::find($id)]);
     }
+
+    public function index()
+    {
+        return view('articles.index', ['articles' => Article::latest()->get()]);
+    }
 }

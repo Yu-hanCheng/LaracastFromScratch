@@ -27,3 +27,4 @@ Route::get('about', function () {
     return view('about', ['articles' =>App\Article::take(2)->latest('updated_at')->get()]);
 });
 Route::get('article/{article}', 'ArticleController@show');
+Route::get('articles', 'ArticleController@index');

@@ -37,3 +37,6 @@
 
 #### 18 Dynamic data
 * take(2)->get()/paginate(2)/latest()->get()
+
+#### 19 Dynamic
+* "{{ asset('css/fonts.css') }}" == "/css/default.css"
