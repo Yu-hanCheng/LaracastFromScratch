@@ -26,9 +26,10 @@ Route::get('contact', function(){
 Route::get('about', function () {
     return view('about', ['articles' =>App\Article::take(2)->latest('updated_at')->get()]);
 });
+
+Route::get('articles/create', 'ArticleController@create');
 Route::get('articles/{id}', 'ArticleController@show');
 Route::get('articles', 'ArticleController@index');
-Route::get('articles/create', 'ArticleController@create');
 Route::post('articles', 'ArticleController@store');
 Route::get('articles/{id}/edit', 'ArticleController@edit');
 Route::put('articles/{id}', 'ArticleController@update');
