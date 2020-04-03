@@ -8,8 +8,8 @@ use App\Post;
 
 class PostController extends Controller
 {
-    public function show($slug)
+    public function show(Post $slug)
     {
-        return view('post', ['post' => Post::where('slug', $slug)->firstorFail()]);
+        return view('post', ['post' => $slug]);
         }
 }

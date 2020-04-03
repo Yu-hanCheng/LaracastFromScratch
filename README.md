@@ -49,3 +49,8 @@
 
 #### 24 Edit Form
 * @method('PUT') 等於 `<input type="hidden" name="_method" value="put">`
+
+#### 26 Validate
+* request()->validate 會直接回傳 fail，前端可直接取得 error 訊息顯示出來
+* uri 的參數 id 名稱直接對應 Controller 的 input 參數，若前面加上 model 可直接取得該物件！
+* Model 可用`getRouteKeyName()`取得slug，這樣 uri 就可以不用寫 id

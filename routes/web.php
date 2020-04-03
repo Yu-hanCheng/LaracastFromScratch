@@ -19,7 +19,7 @@ Route::get('/', function () {
 Route::get('test', function () {
     return view('test', ['name' => request('name')]);
 });
-Route::get('posts/{post}','PostController@show'); 
+Route::get('posts/{slug}','PostController@show'); 
 Route::get('contact', function(){
     return view('contact');
 });
@@ -28,8 +28,8 @@ Route::get('about', function () {
 });
 
 Route::get('articles/create', 'ArticleController@create');
-Route::get('articles/{id}', 'ArticleController@show');
+Route::get('articles/{article}', 'ArticleController@show');
 Route::get('articles', 'ArticleController@index');
 Route::post('articles', 'ArticleController@store');
-Route::get('articles/{id}/edit', 'ArticleController@edit');
-Route::put('articles/{id}', 'ArticleController@update');
+Route::get('articles/{articleObj}/edit', 'ArticleController@edit');
+Route::put('articles/{articleObj}', 'ArticleController@update');

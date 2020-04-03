@@ -7,9 +7,9 @@ use App\Article;
 
 class ArticleController extends Controller
 {
-    public function show($id)
+    public function show(Article $article)
     {
-        return view('articles.show',['article' => Article::find($id)]);
+        return view('articles.show',['article' => $article]);
     }
 
     public function index()
@@ -37,23 +37,23 @@ class ArticleController extends Controller
         return redirect('/articles');
     }
 
-    public function edit($id)
+    public function edit(Article $articleObj)
     {
-        return view('articles.edit', ['article' => Article::find($id)]);
+        return view('articles.edit', ['article' => $articleObj]);
     }
     
-    public function update($id)
+    public function update(Article $articleObj)
     {
         request()->validate([
             'title' => ['required', 'min:3'],
             'excerpt' => 'required',
             'body' => 'required'
         ]);
-        Article::find($id)->update([
+        $articleObj->update([
             'title' => request('title'),
             'body' => request('body'),
             'excerpt' => request('excerpt')
         ]);
-        return redirect('/articles/' . $id);
+        return redirect('/articles/' . $articleObj->id);
     }
 }
