@@ -40,3 +40,6 @@
 
 #### 19 Dynamic
 * "{{ asset('css/fonts.css') }}" == "/css/default.css"
+
+#### 21 Controller
+* `php artisan make:controller PostController -r -m post` 會自動生成 7 個 function 且 include Model 
