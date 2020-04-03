@@ -12,19 +12,19 @@
            <div class="field">
                <label for="title">Title</label>
                <div class="control">
-                   <input type="text" name="title" id="title" value="{{ $article->title }}"/>
+                   <input class="input" type="text" name="title" id="title" value="{{ $article->title }}"/>
                </div>
            </div> 
             <div class="field">
                <label for="excerpt">Excerpt</label>
                <div class="control">
-                   <textarea type="text" name="excerpt" id="excerpt">"{{ $article->excerpt}}"</textarea>
+                   <textarea class="textarea" type="text" name="excerpt" id="excerpt">{{ $article->excerpt}}</textarea>
                </div>
            </div>
             <div class="field">
                <label for="body">Body</label>
                <div class="control">
-                   <textarea type="text" name="body" id="body">"{{ $article->body}}"</textarea>
+                   <textarea class="textarea" type="text" name="body" id="body">{{ $article->body}}</textarea>
                </div>
            </div>
             <div class="field is-grouped">

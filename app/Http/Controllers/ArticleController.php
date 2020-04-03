@@ -44,6 +44,11 @@ class ArticleController extends Controller
     
     public function update($id)
     {
+        request()->validate([
+            'title' => ['required', 'min:3'],
+            'excerpt' => 'required',
+            'body' => 'required'
+        ]);
         Article::find($id)->update([
             'title' => request('title'),
             'body' => request('body'),
