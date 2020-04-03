@@ -34,3 +34,6 @@
 #### 17 Mix and webpack
 * resources 下編譯完的檔案會放到 public 下
 * 很不熟 待研究 
+
+#### 18 Dynamic data
+* take(2)->get()/paginate(2)/latest()->get()
