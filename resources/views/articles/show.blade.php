@@ -9,6 +9,12 @@
             <p><img src="/images/banner.jpg" alt="" class="image image-full" /> </p>
             <p><strong>{{ $article->excerpt }}</strong></p>
             {{ $article->body }}
+
+            <p style="margin-top: 1em">
+                @foreach($article->tags as $tag)
+                <a href="{{ route('articles.index', ['tag' => $tag->name]) }}">{{ $tag->name }}</a>
+                @endforeach
+            </p>
         </div>
     </div>
 </div>

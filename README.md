@@ -73,3 +73,7 @@
 * $table->unique(['xx', 'xx']) 可以確保兩個關係唯一。
     若重複 insert 關係, 得 error: `ERROR 1062 (23000): Duplicate entry '2-4' for key 'article_tag_article_id_tag_id_unique'`
 * `$art->tags->pluck('name')` 取出所有集合中該 key 的 value
+
+#### 32 Display tags under each article
+* 哇, 有 forelse 這個指令。 定義在 `Illuminate/View/Compilers/BladeCompiler.php`
+`return "<?php {$empty} = true; foreach{$expression}: {$empty} = false; ?>";`
