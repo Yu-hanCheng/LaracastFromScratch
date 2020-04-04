@@ -77,3 +77,6 @@
 #### 32 Display tags under each article
 * 哇, 有 forelse 這個指令。 定義在 `Illuminate/View/Compilers/BladeCompiler.php`
 `return "<?php {$empty} = true; foreach{$expression}: {$empty} = false; ?>";`
+
+#### 33 Attach and validate m2m Insert
+* belonsToMany的 func 可以在 save 之後直接 attach(detach) 多對多的關係 `$article->tags()->attach(request('tags'));`
