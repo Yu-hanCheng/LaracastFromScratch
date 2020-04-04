@@ -37,7 +37,7 @@ class ArticleController extends Controller
     {
         ;
         $articleObj->update($this->validateArticle());
-        return redirect('/articles/' . $articleObj->id);
+        return redirect($articleObj->path());
     }
 
     protected function validateArticle()

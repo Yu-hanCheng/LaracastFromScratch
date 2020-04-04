@@ -58,3 +58,6 @@
 #### 27 Reduce duplicate
 * validation 回傳的 ac array 可以直接當 create 或 update 的參數
 * 每個 method 都要寫的 validation 可另外寫 protected func 來用
+
+#### 28 Named route
+* 在 model 寫一個 path() method，replaced `route('xxx.xxx', $xx->id)` with `$xx->path()`
