@@ -61,3 +61,10 @@
 
 #### 28 Named route
 * 在 model 寫一個 path() method，replaced `route('xxx.xxx', $xx->id)` with `$xx->path()`
+
+#### 30 DB factory
+* 可以在某個 model 的 factory 中直接生成其他 model 的 factory。 如下程式碼
+```
+['user_id' => factory(App\User::class),
+'title' => $faker->sentence]
+```
