@@ -24,16 +24,11 @@ class ArticleController extends Controller
 
     public function store()
     {
-        request()->validate([
+        Article::create(request()->validate([
             'title' => ['required', 'min:3'],
             'excerpt' => 'required',
             'body' => 'required'
-        ]);
-        Article::create([
-            'title' => request('title'),
-            'body' => request('body'),
-            'excerpt' => request('excerpt')
-        ]);
+        ]));
         return redirect('/articles');
     }
 
@@ -44,16 +39,12 @@ class ArticleController extends Controller
     
     public function update(Article $articleObj)
     {
-        request()->validate([
+        ;
+        $articleObj->update(request()->validate([
             'title' => ['required', 'min:3'],
             'excerpt' => 'required',
             'body' => 'required'
-        ]);
-        $articleObj->update([
-            'title' => request('title'),
-            'body' => request('body'),
-            'excerpt' => request('excerpt')
-        ]);
+        ]));
         return redirect('/articles/' . $articleObj->id);
     }
 }
