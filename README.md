@@ -68,3 +68,8 @@
 ['user_id' => factory(App\User::class),
 'title' => $faker->sentence]
 ```
+#### 31 Many to Many Relationships
+* 多對多的 pivot 表可以和第二張表一起 create 就好
+* $table->unique(['xx', 'xx']) 可以確保兩個關係唯一。
+    若重複 insert 關係, 得 error: `ERROR 1062 (23000): Duplicate entry '2-4' for key 'article_tag_article_id_tag_id_unique'`
+* `$art->tags->pluck('name')` 取出所有集合中該 key 的 value
