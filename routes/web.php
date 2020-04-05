@@ -33,3 +33,6 @@ Route::get('articles', 'ArticleController@index')->name('articles.index');
 Route::post('articles', 'ArticleController@store');
 Route::get('articles/{articleObj}/edit', 'ArticleController@edit');
 Route::put('articles/{articleObj}', 'ArticleController@update');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
