@@ -80,3 +80,7 @@
 
 #### 33 Attach and validate m2m Insert
 * belonsToMany的 func 可以在 save 之後直接 attach(detach) 多對多的關係 `$article->tags()->attach(request('tags'));`
+
+#### 34 Authenticate
+* `@if (Auth::user())` == `@if (Auth::check())` == `@auth`
+* @quest failed
