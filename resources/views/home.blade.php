@@ -10,6 +10,9 @@
             <div class="text-red-500 text-xs"> {{ $message }}</div>
             @enderror
             <input type="submit" value="Submit"/>
+            @if (session('message'))
+            <p class="text-green-500">{{ session('message') }}</p>
+            @endif
         </form>
         <div class="col-md-8">
             <div class="card">

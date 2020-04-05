@@ -20,6 +20,6 @@ class ContactController extends Controller
             $message->to(request('email'))
             ->subject('Hello Thread');
         });
-        return redirect(route('email.set'));
+        return redirect(route('email.set'))->with('message','Email sent!');
     }        
 }
