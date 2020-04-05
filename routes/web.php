@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function (App\Example $example) {
-    // $example = resolve(App\Example::class);
-    ddd($example);
-});
+
+Route::get('/', 'PageController@home');
 Route::get('test', function () {
     return view('test', ['name' => request('name')]);
 });

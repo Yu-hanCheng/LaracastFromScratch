@@ -97,4 +97,5 @@
 * VerifyCsrfToken middleware 有 except=[] 可以設定不檢查 csrf token，如 '/webhook/*'
 
 #### 39 Resolve Dependency
-*  `app()->make()` == `resolve()`
+*  `app()->make()` == `resolve()＄
+*  在 AppServiceProvider 裡面 `app()->bind()` 可以用 `$this->app->bind()` 因為 ＄app 有在他繼承的 ServiceProvider 被宣告
