@@ -84,3 +84,9 @@
 #### 34 Authenticate
 * `@if (Auth::user())` == `@if (Auth::check())` == `@auth`
 * @quest failed
+
+#### 35 Reset password
+
+
+
+
