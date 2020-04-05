@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::post('recvEmail', 'ContactController@store')->name('email.store');
+Route::get('SetEmail', 'ContactController@home')->name('email.set');
 Route::get('/', 'PageController@home');
 Route::get('test', function () {
     return view('test', ['name' => request('name')]);
