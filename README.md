@@ -95,3 +95,6 @@
 
 #### 37 CSRF
 * VerifyCsrfToken middleware 有 except=[] 可以設定不檢查 csrf token，如 '/webhook/*'
+
+#### 39 Resolve Dependency
+*  `app()->make()` == `resolve()`

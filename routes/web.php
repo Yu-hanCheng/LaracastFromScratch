@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $example = resolve(App\Example::class);
+Route::get('/', function (App\Example $example) {
+    // $example = resolve(App\Example::class);
     ddd($example);
 });
 Route::get('test', function () {
