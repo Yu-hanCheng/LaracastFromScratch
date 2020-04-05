@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Example;
+use Illuminate\Support\Facades\Cache;
 
 class PageController extends Controller
 {
     public function home()
     {
-        app('cache')->remember('kk',60,fn()=>'foobar');
-        ddd(app('cache')->get('kk'));
+        Cache::remember('kk',60,fn()=>'foobar');
+        ddd(Cache::get('kk'));
     }
     
 }
