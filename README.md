@@ -90,3 +90,5 @@
 
 
 
+#### 36 Collection
+* `$article->pluck('tags.*.name')->collapse()->unique()->map(function ($item){return ucwords($item);});`
