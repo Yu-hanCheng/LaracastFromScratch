@@ -9,7 +9,8 @@ class PageController extends Controller
 {
     public function home()
     {
-        ddd(resolve('App\Example') ,resolve('App\Example'));
+        app('cache')->remember('kk',60,fn()=>'foobar');
+        ddd(app('cache')->get('kk'));
     }
     
 }
