@@ -13,13 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+app()->bind('example', function(){
+    $foo = config('services.foo'); 
+    return new App\Example($foo);
+});
+
 Route::get('/', function () {
-    $container = new App\Container();
-    $container->bind('example',function(){
-        return new App\Example();
-    });
-    $example = $container->resolve('example');
-    $example->go();
+    $example = resolve('example');
+    ddd($example);
 });
 Route::get('test', function () {
     return view('test', ['name' => request('name')]);
