@@ -13,13 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-app()->bind('example', function(){
-    $foo = config('services.foo'); 
-    return new App\Example($foo);
-});
-
 Route::get('/', function () {
-    $example = resolve('example');
+    $example = resolve(App\Example::class);
     ddd($example);
 });
 Route::get('test', function () {
