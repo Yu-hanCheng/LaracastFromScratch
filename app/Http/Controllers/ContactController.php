@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMe;
 
 class ContactController extends Controller
 {
@@ -16,10 +17,7 @@ class ContactController extends Controller
     {
         request()->validate(['email' => 'required|email']);
 
-        Mail::raw('It works!', function($message){
-            $message->to(request('email'))
-            ->subject('Hello Thread');
-        });
+        Mail::to(request('email'))->send(new ContactMe());
         return redirect(route('email.set'))->with('message','Email sent!');
     }        
 }
