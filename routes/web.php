@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get('payments/create', 'PaymentController@create')->middleware('auth');
+Route::post('payments', 'PaymentController@store')->middleware('auth')->name('payment.store');
 Route::post('recvEmail', 'ContactController@store')->name('email.store');
 Route::get('SetEmail', 'ContactController@home')->name('email.set');
 Route::get('/', 'PageController@home');
