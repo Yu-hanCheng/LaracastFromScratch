@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>It works Again!</h1>
-    <p>Hear more about {{ $topic }}</p>
-</body>
-</html>
+@component('mail::message')
+# A Heading
+
+job list
+
+- available
+- bb
+- cc
+
+@component('mail::button', ['url' => 'https://laracasts.com'])
+    Visit Laracast
+@endcomponent
+@endcomponent

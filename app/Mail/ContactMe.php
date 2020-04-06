@@ -29,7 +29,7 @@ class ContactMe extends Mailable
      */
     public function build()
     {
-        return $this->view('email.contact-me')
+        return $this->markdown('email.contact-me')
         ->subject('More info about '. $this->topic);
     }
 }
