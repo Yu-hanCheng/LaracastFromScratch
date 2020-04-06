@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('notifications', 'UserNotificationsController@show')->middleware('auth');
 Route::get('payments/create', 'PaymentController@create')->middleware('auth');
 Route::post('payments', 'PaymentController@store')->middleware('auth')->name('payment.store');
 Route::post('recvEmail', 'ContactController@store')->name('email.store');

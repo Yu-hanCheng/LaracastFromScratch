@@ -114,3 +114,6 @@
 #### 46 Notification
 * `php artisan make:notification PaymentReceived`
 * 因為 user model 裡有 use Notifiable 這個 trait，所以可不用用 Notification Facades 直接 request()->user()->notify
+
+#### 47 DB Notifications
+* `php artisan notifications:table`
