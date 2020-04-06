@@ -41,9 +41,11 @@ class PaymentReceived extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->subject('Your Payment Was Received')
+                    ->greeting("What's up")
                     ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->action('Sign up', url('/'))
+                    ->line('Thanks!');
     }
 
     /**
