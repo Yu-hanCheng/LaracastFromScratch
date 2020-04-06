@@ -7,5 +7,6 @@
 </head>
 <body>
     <h1>It works Again!</h1>
+    <p>Hear more about {{ $topic }}</p>
 </body>
 </html>

@@ -11,14 +11,15 @@ class ContactMe extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $topic;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($topic)
     {
-        //
+        $this->topic = $topic;
     }
 
     /**
@@ -28,6 +29,7 @@ class ContactMe extends Mailable
      */
     public function build()
     {
-        return $this->view('email.contact-me');
+        return $this->view('email.contact-me')
+        ->subject('More info about '. $this->topic);
     }
 }
