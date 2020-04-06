@@ -106,3 +106,6 @@
 
 #### 42 Email
 * 若 .env 有  MAIL_FROM_ADDRESS 欄位就一定要填，不能是 null，env('MAIL_FROM_ADDRESS', 'default@e.com')的預設值是 沒有 Key 才會用上
+
+#### 45 Email create markdown templates
+* `php artisan make:mail Contact --markdown=email.contact`
