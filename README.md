@@ -109,3 +109,4 @@
 
 #### 45 Email create markdown templates
 * `php artisan make:mail Contact --markdown=email.contact`
+* `php artisan vendor:publish --tag=laravel-mail`
