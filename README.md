@@ -103,3 +103,6 @@
 #### 40 
 * `View::make()` == `view()`
 * `Cache::remember()` == `app('cache')->remember()` (CacheServiceProvider中有註冊)
+
+#### 42 Email
+* 若 .env 有  MAIL_FROM_ADDRESS 欄位就一定要填，不能是 null，env('MAIL_FROM_ADDRESS', 'default@e.com')的預設值是 沒有 Key 才會用上
