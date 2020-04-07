@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Reply;
 use App\Tag;
 
 class ArticleController extends Controller
@@ -63,9 +64,10 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function bestReply(Article $articleObj)
+    public function bestReply(Reply $replyObj)
     {
-        $articleObj->update(['best_reply_id'=>request('reply_id')]);
-        dd($articleObj);
+        $this->authorize('update-article', $replyObj->article);
+        $replyObj->article->update(['best_reply_id' => $replyObj->id]);
+        return back();
     }
 }
