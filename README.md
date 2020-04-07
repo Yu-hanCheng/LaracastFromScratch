@@ -117,3 +117,7 @@
 
 #### 47 DB Notifications
 * `php artisan notifications:table`
+
+#### 48 SMS Notification
+* `composer require laravel/nexmo-notification-channel`
+* 申請 Nexmo 帳號，在 .env 中增加兩個 key `NEXMO_KEY`, `NEXMO_SECRET` 
