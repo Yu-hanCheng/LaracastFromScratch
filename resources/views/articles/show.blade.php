@@ -15,6 +15,18 @@
                 <a href="{{ route('articles.index', ['tag' => $tag->name]) }}">{{ $tag->name }}</a>
                 @endforeach
             </p>
+            <ul>
+                @foreach($article->replies as $reply)
+                <li>
+                    <a >{{ $reply->content }}</a>
+                </li>
+                <form action="{{ route('bestReply.store', $article->id) }}" method="post">
+                    @csrf
+                    <input type="hidden" name="reply_id" value="{{ $reply->id}}"/>
+                    <input type="submit" class="btn btn-primary"/>
+                </form>
+                @endforeach
+            </ul>
         </div>
     </div>
 </div>

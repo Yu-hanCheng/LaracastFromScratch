@@ -19,6 +19,7 @@ class CreateArticlesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->text('excerpt');
             $table->text('body');
+            $table->unsignedBigInteger('best_reply_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

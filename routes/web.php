@@ -29,12 +29,16 @@ Route::get('about', function () {
     return view('about', ['articles' =>App\Article::take(2)->latest('updated_at')->get()]);
 });
 
-Route::get('articles/create', 'ArticleController@create');
-Route::get('articles/{article}', 'ArticleController@show')->name('articles.show');
-Route::get('articles', 'ArticleController@index')->name('articles.index');
-Route::post('articles', 'ArticleController@store');
-Route::get('articles/{articleObj}/edit', 'ArticleController@edit');
-Route::put('articles/{articleObj}', 'ArticleController@update');
+Route::group(['middleware'=>['auth']], function(){
+    Route::get('articles/create', 'ArticleController@create');
+    Route::get('articles/{article}', 'ArticleController@show')->name('articles.show');
+    Route::get('articles', 'ArticleController@index')->name('articles.index');
+    Route::post('articles', 'ArticleController@store');
+    Route::get('articles/{articleObj}/edit', 'ArticleController@edit');
+    Route::put('articles/{articleObj}', 'ArticleController@update');
+    Route::post('bestReply/{articleObj}', 'ArticleController@bestReply')->name('bestReply.store');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

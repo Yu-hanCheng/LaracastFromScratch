@@ -10,7 +10,7 @@ class ArticleController extends Controller
 {
     public function show(Article $article)
     {
-        return view('articles.show',['article' => $article]);
+        return view('articles.show',['article' => $article->where('id',$article->id)->with('replies')->first()]);
     }
 
     public function index()
@@ -32,7 +32,7 @@ class ArticleController extends Controller
     {
         $this->validateArticle();
         $article = new Article(request(['title', 'excerpt', 'body']));
-        $article->user_id = 2;// auth()->id();
+        $article->user_id = auth()->id();
         $article->save();
 
         $article->tags()->attach(request('tags'));
@@ -61,5 +61,11 @@ class ArticleController extends Controller
             'body' => 'required',
             'tags' => 'exists:tags,id',
         ]);
+    }
+
+    public function bestReply(Article $articleObj)
+    {
+        $articleObj->update(['best_reply_id'=>request('reply_id')]);
+        dd($articleObj);
     }
 }
