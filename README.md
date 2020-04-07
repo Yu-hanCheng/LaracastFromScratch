@@ -121,3 +121,8 @@
 #### 48 SMS Notification
 * `composer require laravel/nexmo-notification-channel`
 * 申請 Nexmo 帳號，在 .env 中增加兩個 key `NEXMO_KEY`, `NEXMO_SECRET` 
+
+#### 49 Event
+* `php artisan make:event ProductPurchased`
+* `event(new ProductPurchased('toy'));` == `ProductPurchased::dispatch('toy');`
+* `php artisan make:listener AwardAchievements`
