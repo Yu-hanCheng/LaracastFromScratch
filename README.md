@@ -127,3 +127,6 @@
 * `event(new ProductPurchased('toy'));` == `ProductPurchased::dispatch('toy');`
 * `php artisan make:listener AwardAchievements`
 *  Overwrite <shouldDiscoverEvents> func return true後，不用手動登記 listener 有誰，增加 listener 很方便
+
+#### 50 Auth
+* `@can('xxx')` 對應 AuthServiceProvider 在 boot() 裡定義 Gate

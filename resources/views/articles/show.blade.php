@@ -20,11 +20,13 @@
                 <li>
                     <a >{{ $reply->content }}</a>
                 </li>
+                @can ('update-article', $article)
                 <form action="{{ route('bestReply.store', $article->id) }}" method="post">
                     @csrf
                     <input type="hidden" name="reply_id" value="{{ $reply->id}}"/>
                     <input type="submit" class="btn btn-primary"/>
                 </form>
+                @endcan
                 @endforeach
             </ul>
         </div>
