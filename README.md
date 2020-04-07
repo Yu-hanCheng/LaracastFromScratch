@@ -126,3 +126,4 @@
 * `php artisan make:event ProductPurchased`
 * `event(new ProductPurchased('toy'));` == `ProductPurchased::dispatch('toy');`
 * `php artisan make:listener AwardAchievements`
+*  Overwrite <shouldDiscoverEvents> func return true後，不用手動登記 listener 有誰，增加 listener 很方便
