@@ -51,4 +51,19 @@ class User extends Authenticatable
     {
         return '886972025948';//$this->phone_number;
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function assignRole($role)
+    {
+        $this->roles()->save($role);
+    }
+
+    public function abilities()
+    {
+        return $this->roles->map->abilities->flatten()->pluck('name')->unique();
+    }
 }

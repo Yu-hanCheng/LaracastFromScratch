@@ -150,3 +150,8 @@ public function authorize($ability, $arguments = [])
 
 #### 53
 * middleware can be a policy!! `->middleware('can:view,article')` the article is wildcard for route 
+
+#### 54 Roles and Abilities
+* `$table->primary(['user_id, role_id']);` ERROR
+* user belongsToMany Role 的關係表順序要是 role_user 才行
+* $u->roles->map->abilities->flatten()->pluck('name')->unique();

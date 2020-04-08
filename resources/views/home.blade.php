@@ -27,6 +27,11 @@
 
                     You are logged in!
                 </div>
+                @can('edit_form')
+                <li>
+                    <a href="#">Edit form</a>
+                </li>
+                @endcan
             </div>
         </div>
     </div>
