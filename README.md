@@ -130,3 +130,12 @@
 
 #### 50 Auth
 * `@can('xxx')` 對應 AuthServiceProvider 在 boot() 裡定義 Gate
+* `$this->authorize()` 在 AuthorizeRequests 裡。 Controller 會 use AuthorizesRequests.
+```
+public function authorize($ability, $arguments = [])
+{
+    [$ability, $arguments] = $this->parseAbilityAndArguments($ability, $arguments);
+
+    return app(Gate::class)->authorize($ability, $arguments);
+}
+```

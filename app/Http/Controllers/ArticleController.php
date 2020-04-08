@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Article;
 use App\Reply;
 use App\Tag;
+use Illuminate\Support\Facades\Gate;
 
 class ArticleController extends Controller
 {
@@ -66,8 +67,11 @@ class ArticleController extends Controller
 
     public function bestReply(Reply $replyObj)
     {
-        $this->authorize('update-article', $replyObj->article);
-        $replyObj->article->update(['best_reply_id' => $replyObj->id]);
+        if (Gate::denies('update-article',$replyObj->article)){
+            die("Deny the request");
+        } else {
+            $replyObj->article->update(['best_reply_id' => $replyObj->id]);
+        }
         return back();
     }
 }
