@@ -155,3 +155,4 @@ public function authorize($ability, $arguments = [])
 * `$table->primary(['user_id, role_id']);` ERROR
 * user belongsToMany Role 的關係表順序要是 role_user 才行
 * $u->roles->map->abilities->flatten()->pluck('name')->unique();
+* 當重複 save role_user 時，會跳 EXCEPTION `SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-1' for key 'PRIMARY'`， 改用 sync 解決
