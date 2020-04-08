@@ -10,4 +10,9 @@ class Reply extends Model
     {
         return $this->belongsTo(Article::class);
     }
+
+    public function isBest()
+    {
+        return $this->id === $this->article->best_reply_id;
+    }
 }

@@ -17,6 +17,9 @@
             </p>
             <ul>
                 @foreach($article->replies as $reply)
+                @if($reply->isBest())
+                <span style="color:green">Best it!</span>
+                @endif
                 <li>
                     <a >{{ $reply->content }}</a>
                 </li>
