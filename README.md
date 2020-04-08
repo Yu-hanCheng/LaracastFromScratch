@@ -144,3 +144,6 @@ public function authorize($ability, $arguments = [])
 #### 51 Auth filter
 *  policy 中在 <before> func 做 admin檢查, 在這裏 return 就不會再往下跑到 <update> func了，所以 admin 也可以設每篇的 best reply
 * 上面那個方法可能要在每個 policy 都寫, 改寫在 AuthServiceProvider 較整潔
+
+#### 52
+* try to take of ability name but fail
