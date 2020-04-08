@@ -31,7 +31,7 @@ Route::get('about', function () {
 
 Route::group(['middleware'=>['auth']], function(){
     Route::get('articles/create', 'ArticleController@create');
-    Route::get('articles/{article}', 'ArticleController@show')->name('articles.show');
+    Route::get('articles/{article}', 'ArticleController@show')->name('articles.show')->middleware('can:view,article');
     Route::get('articles', 'ArticleController@index')->name('articles.index');
     Route::post('articles', 'ArticleController@store');
     Route::get('articles/{articleObj}/edit', 'ArticleController@edit');

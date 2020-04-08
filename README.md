@@ -147,3 +147,6 @@ public function authorize($ability, $arguments = [])
 
 #### 52
 * try to take of ability name but fail
+
+#### 53
+* middleware can be a policy!! `->middleware('can:view,article')` the article is wildcard for route 

@@ -21,4 +21,9 @@ class ArticlePolicy
     {
         return $article->author->is($user);
     }
+
+    public function view(User $user, Article $article)
+    {
+        return $article->author->is($user);
+    }
 }
