@@ -140,3 +140,4 @@ public function authorize($ability, $arguments = [])
 }
 ```
 * `php artisan make:policy ArticlePolicy -m Article` @can('xxx') Use policy
+*  policy 中在 <before> func 做 admin檢查, 在這裏 return 就不會再往下跑到 <update> func了，所以 admin 也可以設每篇的 best reply
