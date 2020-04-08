@@ -27,4 +27,9 @@ class Article extends Model
     {
         return $this->hasMany(Reply::class);
     }
+
+    public function setBestReply(Reply $reply)
+    {
+        $this->update(['best_reply_id' => $reply->id]);
+    }
 }

@@ -66,8 +66,8 @@ class ArticleController extends Controller
 
     public function bestReply(Reply $replyObj)
     {
-        $this->authorize('update-article', $replyObj->article);
-        $replyObj->article->update(['best_reply_id' => $replyObj->id]);
+        $this->authorize('update', $replyObj->article);
+        $replyObj->article->setBestReply($replyObj);
         return back();
     }
 }

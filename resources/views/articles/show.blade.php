@@ -20,7 +20,7 @@
                 <li>
                     <a >{{ $reply->content }}</a>
                 </li>
-                @can ('update-article', $article)
+                @can ('update', $article)
                 <form action="{{ route('bestReply.store', $reply->id) }}" method="post">
                     @csrf
                     <input type="submit" class="btn btn-primary"/>

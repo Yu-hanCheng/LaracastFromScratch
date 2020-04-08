@@ -139,3 +139,4 @@ public function authorize($ability, $arguments = [])
     return app(Gate::class)->authorize($ability, $arguments);
 }
 ```
+* `php artisan make:policy ArticlePolicy -m Article` @can('xxx') Use policy
