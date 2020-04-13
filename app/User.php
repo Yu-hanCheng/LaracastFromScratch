@@ -42,6 +42,13 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function timeline()
+    {
+        $ids = $this->follows->pluck('id');
+        $ids->push($this->id);
+        return Article::whereIn('user_id', $ids)->latest()->get();
+    }
+    
     public function articles()
     {
         return $this->hasMany(Article::class);

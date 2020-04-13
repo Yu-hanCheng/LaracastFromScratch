@@ -11,7 +11,6 @@ class PageController extends Controller
     public function home()
     {
         Cache::remember('kk',60,fn()=>'foobar');
-        ddd(Cache::get('kk'));
     }
     
 }

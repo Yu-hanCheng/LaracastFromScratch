@@ -37,6 +37,7 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('articles/{articleObj}/edit', 'ArticleController@edit');
     Route::put('articles/{articleObj}', 'ArticleController@update');
     Route::post('bestReply/{replyObj}', 'ArticleController@bestReply')->name('bestReply.store');
+    Route::get('timeline','ArticleController@timeline');
 });
 
 Auth::routes();

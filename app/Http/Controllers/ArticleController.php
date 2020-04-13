@@ -24,6 +24,12 @@ class ArticleController extends Controller
         return view('articles.index', ['articles' => $articles]);
     }
 
+    public function timeline()
+    {
+        $allArticles = auth()->user()->timeline();
+        return view('articles.index', ['articles' => $allArticles]);
+    }
+
     public function create()
     {
         return view('articles.create', ['tags'=>Tag::all()]);
