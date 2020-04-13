@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function timeline()
     {
-        $ids = $this->follows->pluck('id');
+        $ids = $this->follows()->pluck('id');
         $ids->push($this->id);
         return Article::whereIn('user_id', $ids)->latest()->get();
     }

@@ -174,3 +174,5 @@ public function authorize($ability, $arguments = [])
     2. 若改用 hasMany 會出現錯誤： PHP Error:  Class 'follows' not found in /Users/sarahcheng/code/laracastFromScratch/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasRelationships.php on line 718
 
 * `follow(){ $this->follows()->save($user)}`
+#### 59 Timline
+* `$this->follows->pluck('id')`會撈所有follows的整體物件(collection) 改`$this->follows()->pluck('id')` 撈所有follows(relations:belongsToMany)的id
