@@ -176,3 +176,8 @@ public function authorize($ability, $arguments = [])
 * `follow(){ $this->follows()->save($user)}`
 #### 59 Timline
 * `$this->follows->pluck('id')`會撈所有follows的整體物件(collection) 改`$this->follows()->pluck('id')` 撈所有follows(relations:belongsToMany)的id
+
+#### 62
+* `$this->follows->contains($user)` 會撈出大量資料再check $user，應改成 `$this->follows()->where('following_user_id',$user->id)->exists();`
+* `getRouteKeyName(){return 'name';}` 可以改用 `uri/{user:name}`
+* USE trait 
