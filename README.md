@@ -156,3 +156,21 @@ public function authorize($ability, $arguments = [])
 * user belongsToMany Role 的關係表順序要是 role_user 才行
 * $u->roles->map->abilities->flatten()->pluck('name')->unique();
 * 當重複 save role_user 時，會跳 EXCEPTION `SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-1' for key 'PRIMARY'`， 改用 sync 解決
+
+#### 57 Eloquent
+* $table->foreignId('user_id');
+* public function getAvatarAttribute() //DB table不一定要有 attribute 欄位
+    {
+        return "https://i.pravatar.cc/40?u=" . $this->email;
+    }
+    * 前端可以直接取得 {{ user()->avatar }}
+
+#### 58 Follow
+* `follows(){ retrun $this->belongsToMany(User::class,'follows', 'user_id', 'following_user_id')}` //table, foreignPivotKey, relatedPivotKey
+    1. 如果沒有寫 foreignPivotKey，會變成
+    ```=
+    General error: 1364 Field 'following_user_id' doesn't have a default value (SQL: insert into `follows` (`user_id`) values (1))
+    ```
+    2. 若改用 hasMany 會出現錯誤： PHP Error:  Class 'follows' not found in /Users/sarahcheng/code/laracastFromScratch/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasRelationships.php on line 718
+
+* `follow(){ $this->follows()->save($user)}`
