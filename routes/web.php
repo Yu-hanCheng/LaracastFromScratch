@@ -39,7 +39,8 @@ Route::group(['middleware'=>['auth']], function(){
     Route::post('bestReply/{replyObj}', 'ArticleController@bestReply')->name('bestReply.store');
     Route::get('timeline','ArticleController@timeline');
     Route::post('profiles/{user:name}/follow','FollowsController@store');
-    Route::get('profiles/{user:name}','ProfilesController@show');
+    Route::get('profiles/{user:name}','ProfilesController@show')->name('profile');
+    Route::get('profiles/{user:name}/edit','ProfilesController@edit');
 });
 
 Auth::routes();
