@@ -181,3 +181,6 @@ public function authorize($ability, $arguments = [])
 * `$this->follows->contains($user)` 會撈出大量資料再check $user，應改成 `$this->follows()->where('following_user_id',$user->id)->exists();`
 * `getRouteKeyName(){return 'name';}` 可以改用 `uri/{user:name}`
 * USE trait 
+
+#### 63 profile authoruze logic
+* `@unless(auth()->user()->is($user))` 除非是 user 否則就 ...執行以下程式
