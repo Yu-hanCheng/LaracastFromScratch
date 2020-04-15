@@ -194,4 +194,17 @@ public function authorize($ability, $arguments = [])
 #### 65 Paginate
 * paginate後，前端 `{{ $all->links() }}` 可直接有上下頁
 * 在 tinker 裡 `$users->each(function ($user) { factory('App\Article', 2)->create(['user_id'=>$user->id]);});`
-*
+
+#### 67 like
+* `select article_id, SUM(liked) likes, SUM(!liked) dislikes from likes group by article_id;`
+* `select * from articles left join ( select * from likes where user_id = 1) likes on likes.article_id = articles.id;`
+* 寫在 Article 的 Likeable 的 isLikeBy 用 $user->likes 不用 $this->likes 是因為 $this->likes 經過 scopeWithLikes 已經變成按讚數, 而非 collection
+```php=
+public function isLikeBy($user)
+{
+    return (bool) $user->likes
+        ->where('article_id', $this->id)
+        ->where('liked', true)
+        ->count();
+}
+```

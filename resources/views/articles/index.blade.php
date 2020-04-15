@@ -11,6 +11,12 @@
             </div>
             <p><img src="/images/banner.jpg" alt="" class="image image-full" /> </p>
             <p><a href="#">{{ $article->excerpt }}</a></p>
+            <div>
+                <span style="color:{{ $article->isLikeBy(current_user()) ? 'blue':'gray' }}">good</span>
+            </div>
+
+            <span>Likes {{ $article->likes ?: 0 }}</span>
+            <span>disLikes {{ $article->disLikes ?: 0 }}</span>
         </div>
         @empty
         <p>No relevant articles yet.</p>

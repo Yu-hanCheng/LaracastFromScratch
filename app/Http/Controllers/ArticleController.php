@@ -19,7 +19,7 @@ class ArticleController extends Controller
         if (request('tag')) {
             $articles = Tag::where('name',request('tag'))->firstorFail()->articles;
         } else {
-            $articles =  Article::latest()->get();
+            $articles =  Article::withLikes()->latest()->get();
         }
         return view('articles.index', ['articles' => $articles]);
     }

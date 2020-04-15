@@ -89,4 +89,9 @@ class User extends Authenticatable
         $path = route('profile', $this->name);
         return $append ? "{$path}/{$append}" : $path;
     }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }
