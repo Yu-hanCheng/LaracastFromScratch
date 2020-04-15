@@ -14,9 +14,6 @@ class ProfilesController extends Controller
 
     public function edit(Request $request, User $user)
     {
-        if(current_user()->can('editProfile', $user)){
-            return view('profiles.edit', compact('user'));
-        };
-        return "false";        
+        return view('profiles.edit', compact('user'));
     }
 }

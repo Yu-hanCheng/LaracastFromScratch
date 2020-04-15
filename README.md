@@ -184,3 +184,5 @@ public function authorize($ability, $arguments = [])
 
 #### 63 profile authoruze logic
 * `@unless(auth()->user()->is($user))` 除非是 user 否則就 ...執行以下程式
+* `php artisan make:policy UserPolicy -m User` 因為之前寫 Gate::before 的 callback 是去資料庫比對 role 和 ability 所以現在新加的 ability 也要存進資料庫。 資料庫有權限(沒有return false)才會繼續往下看 Model 定義的 policy
+* 可透過 blade, middleware, $user->can, $this->authorize() 來 check
