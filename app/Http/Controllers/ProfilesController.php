@@ -12,9 +12,11 @@ class ProfilesController extends Controller
         return view('profiles.master',compact('user'));
     }
 
-    public function edit(User $user)
+    public function edit(Request $request, User $user)
     {
-        $this->authorize('editProfile', $user);
-        return view('profiles.edit', compact('user'));
+        if(current_user()->can('editProfile', $user)){
+            return view('profiles.edit', compact('user'));
+        };
+        return "false";        
     }
 }
