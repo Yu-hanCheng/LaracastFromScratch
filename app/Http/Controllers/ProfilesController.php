@@ -23,6 +23,7 @@ class ProfilesController extends Controller
         $attributes = request()->validate([
             'name' => ['string', 'required', 'max:255', Rule::unique('users')->ignore($user)],
             'avatar' => ['required', 'file'],
+            'password' => ['required', 'string', 'confirmed']
         ]);
         $attributes['avatar'] = request('avatar')->store('avatar');
         $user->update($attributes);
