@@ -190,3 +190,8 @@ public function authorize($ability, $arguments = [])
 #### 64 Storage file avatar
 * 修改 .env檔 `FILESYSTEM_DRIVER=public` 讓 file(avatar)存在 public, `php artisan storage:link`
 * 取 avatar 不用寫 {{ assest() }}，直接在 Model寫 Accessor： getAvatarAttribute 
+
+#### 65 Paginate
+* paginate後，前端 `{{ $all->links() }}` 可直接有上下頁
+* 在 tinker 裡 `$users->each(function ($user) { factory('App\Article', 2)->create(['user_id'=>$user->id]);});`
+*

@@ -41,7 +41,7 @@
         </div> 
         <div class="mb-6">
             <img src="{{ $user->avatar }}" width="100">
-            <input type="file" name="avatar" id="avatar" required>
+            <input type="file" name="avatar" id="avatar">
             @error('avatar')
             <p class="text-red-500">{{ $message }}</p>
             @enderror

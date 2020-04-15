@@ -10,7 +10,8 @@ class ProfilesController extends Controller
 {
     public function show(User $user)
     {
-        return view('profiles.master',compact('user'));
+        $all = User::where('id', '!=', current_user()->id)->paginate(3);
+        return view('profiles.master',compact('user','all'));
     }
 
     public function edit(Request $request, User $user)
@@ -22,10 +23,12 @@ class ProfilesController extends Controller
     {
         $attributes = request()->validate([
             'name' => ['string', 'required', 'max:255', Rule::unique('users')->ignore($user)],
-            'avatar' => ['required', 'file'],
+            'avatar' => ['file'],
             'password' => ['required', 'string', 'confirmed']
         ]);
-        $attributes['avatar'] = request('avatar')->store('avatar');
+        if (request('avatar')) {
+            $attributes['avatar'] = request('avatar')->store('avatar');
+        }
         $user->update($attributes);
         return redirect($user->path());
     }
