@@ -14,7 +14,7 @@ class ProfilesController extends Controller
 
     public function edit(User $user)
     {
-        abort_if($user->isNot(current_user()),404);
+        $this->authorize('editProfile', $user);
         return view('profiles.edit', compact('user'));
     }
 }
