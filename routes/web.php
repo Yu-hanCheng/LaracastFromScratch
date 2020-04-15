@@ -41,6 +41,7 @@ Route::group(['middleware'=>['auth']], function(){
     Route::post('profiles/{user:name}/follow','FollowsController@store');
     Route::get('profiles/{user:name}','ProfilesController@show')->name('profile');
     Route::get('profiles/{user:name}/edit','ProfilesController@edit')->middleware('can:editProfile,user');
+    Route::patch('profiles/{user:name}','ProfilesController@update')->middleware('can:editProfile,user');
 });
 
 Auth::routes();

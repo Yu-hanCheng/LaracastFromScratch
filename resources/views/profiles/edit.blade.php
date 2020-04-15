@@ -22,5 +22,18 @@
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>
+        <div class="mb-6">
+            <img src="{{ $user->avatar }}" width="100">
+            <input type="file" name="avatar" id="avatar" required>
+            @error('avatar')
+                <p class="text-red-500">{{ $message }}</p>
+            @enderror
+        </div>
+        <div class="mb-6">
+            <button type="submit">
+                Submit
+            </button>
+            <a href="{{ $user->path() }}" class="hover:underline">Cancel</a>
+        </div>
     </form>
 </x-app>
